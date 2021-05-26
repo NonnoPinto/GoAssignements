@@ -45,7 +45,7 @@ func main() {
 	fr := make(chan Prenotazione, 7)
 
 	//titolo
-	fmt.Println("Simulazione della prenotazione di sette utenti\nper sei posti disponibili nelle seguenti mete:\nSpagna - Francia")
+	fmt.Println("Simulazione della prenotazione di sette utenti\nnelle seguenti mete:\nSpagna - Francia")
 
 	wg.Add(7)
 	go prenota(ut1, sp, fr)
