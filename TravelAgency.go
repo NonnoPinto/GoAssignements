@@ -22,16 +22,18 @@ type Prenotazione struct {
 
 var (
 	//inizializzazione utenti
-	ut1    Cliente = Cliente{"Gianni"}
-	ut2    Cliente = Cliente{"Mario"}
-	ut3    Cliente = Cliente{"Francesco"}
-	ut4    Cliente = Cliente{"Valentina"}
-	ut5    Cliente = Cliente{"Amelia"}
-	ut6    Cliente = Cliente{"Giovanni"}
-	ut7    Cliente = Cliente{"Fabio"}
+	ut1 Cliente = Cliente{"Gianni"}
+	ut2 Cliente = Cliente{"Mario"}
+	ut3 Cliente = Cliente{"Francesco"}
+	ut4 Cliente = Cliente{"Valentina"}
+	ut5 Cliente = Cliente{"Amelia"}
+	ut6 Cliente = Cliente{"Giovanni"}
+	ut7 Cliente = Cliente{"Fabio"}
+	//inizializzazione mete
 	spain  Viaggio = Viaggio{"Spagna"}
 	france Viaggio = Viaggio{"Francia"}
-	wg             = sync.WaitGroup{}
+	//WaitGroup
+	wg = sync.WaitGroup{}
 )
 
 func main() {
@@ -84,14 +86,18 @@ func stampaPartecipanti(sp chan Prenotazione, fr chan Prenotazione) {
 
 	//stampa clienti Francia
 	fmt.Println("\n==Lista prenotati Francia==")
-	i = 0
+	j := 0
 	item, valid = <-fr
 	for valid {
 		fmt.Println(item.utente)
-		i++
+		j++
 		item, valid = <-fr
 	}
-	if i < 2 {
+	if j < 2 {
 		fmt.Println("!!Ma il viaggio non si farà perchè ci sono troppi pochi iscritti!!")
+	}
+	//se c'è stato qualche problema di concorrenza...
+	if j+i < 7 {
+		fmt.Println("Ops")
 	}
 }
