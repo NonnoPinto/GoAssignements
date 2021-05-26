@@ -50,7 +50,7 @@ func main() {
 
 	u1 := make(chan Martello)
 	u2 := make(chan Cacciavite)
-	u3 := make(chan Trapano)
+	u3 := make(chan Trapano, 2)
 
 	wg.Add(9)
 
@@ -97,8 +97,8 @@ func main() {
 		wg.Done()
 	}()
 
-	//trapani
 	go func() {
+		//trapani
 		i := <-u3
 		tmp := <-o1
 		fmt.Println(tmp.nome, "sta usando il", i.name)
@@ -120,6 +120,7 @@ func main() {
 	}()
 
 	go func() {
+		//trapani
 		i := <-u3
 		tmp := <-o2
 		fmt.Println(tmp.nome, "sta usando il", i.name)
@@ -141,6 +142,7 @@ func main() {
 	}()
 
 	go func() {
+		//trapani
 		i := <-u3
 		tmp := <-o3
 		fmt.Println(tmp.nome, "sta usando il", i.name)
