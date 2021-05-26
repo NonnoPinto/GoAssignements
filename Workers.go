@@ -97,40 +97,6 @@ func main() {
 		wg.Done()
 	}()
 
-	//cacciavite
-	go func() {
-		i := <-u2
-		tmp := <-o1
-		fmt.Println(tmp.nome, "sta usando il", i.name)
-		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
-		fmt.Println(tmp.nome, "ha smesso di usare il", i.name)
-		go addO1(o1)
-		go addCacciavite(u2)
-		wg.Done()
-	}()
-
-	go func() {
-		i := <-u2
-		tmp := <-o2
-		fmt.Println(tmp.nome, "sta usando il", i.name)
-		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
-		fmt.Println(tmp.nome, "ha smesso di usare il", i.name)
-		go addO2(o2)
-		go addCacciavite(u2)
-		wg.Done()
-	}()
-
-	go func() {
-		i := <-u2
-		tmp := <-o3
-		fmt.Println(tmp.nome, "sta usando il", i.name)
-		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
-		fmt.Println(tmp.nome, "ha smesso di usare il", i.name)
-		go addO3(o3)
-		go addCacciavite(u2)
-		wg.Done()
-	}()
-
 	//trapani
 	go func() {
 		i := <-u3
@@ -141,6 +107,16 @@ func main() {
 		go addO1(o1)
 		go addTrapano(u3, i)
 		wg.Done()
+
+		//cacciavite
+		k := <-u2
+		tmp = <-o1
+		fmt.Println(tmp.nome, "sta usando il", k.name)
+		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
+		fmt.Println(tmp.nome, "ha smesso di usare il", k.name)
+		go addO1(o1)
+		go addCacciavite(u2)
+		wg.Done()
 	}()
 
 	go func() {
@@ -152,6 +128,16 @@ func main() {
 		go addO2(o2)
 		go addTrapano(u3, i)
 		wg.Done()
+
+		//cacciavite
+		k := <-u2
+		tmp = <-o2
+		fmt.Println(tmp.nome, "sta usando il", k.name)
+		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
+		fmt.Println(tmp.nome, "ha smesso di usare il", k.name)
+		go addO2(o2)
+		go addCacciavite(u2)
+		wg.Done()
 	}()
 
 	go func() {
@@ -162,6 +148,16 @@ func main() {
 		fmt.Println(tmp.nome, "ha smesso di usare il", i.name)
 		go addO3(o3)
 		go addTrapano(u3, i)
+		wg.Done()
+
+		//cacciavite
+		k := <-u2
+		tmp = <-o3
+		fmt.Println(tmp.nome, "sta usando il", k.name)
+		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
+		fmt.Println(tmp.nome, "ha smesso di usare il", k.name)
+		go addO3(o3)
+		go addCacciavite(u2)
 		wg.Done()
 	}()
 
