@@ -73,31 +73,26 @@ func prenota(nome Cliente, sp chan Prenotazione, fr chan Prenotazione) {
 func stampaPartecipanti(sp chan Prenotazione, fr chan Prenotazione) {
 	//stampa clienti Spagna
 	fmt.Println("==Lista prenotati Spagna==")
-	i := 0
-	item, valid := <-sp
-	for valid {
-		fmt.Println(item.utente)
-		i++
-		item, valid = <-sp
-	}
-	if i < 4 {
-		fmt.Println("!!Ma il viaggio non si farà perchè ci sono troppi pochi iscritti!!")
+	if len(sp) < 4 {
+		fmt.Println("!!Il viaggio non si farà a causa dei troppi pochi iscritti!!")
+	} else {
+		for k := range sp {
+			fmt.Println(k.utente)
+		}
 	}
 
 	//stampa clienti Francia
 	fmt.Println("\n==Lista prenotati Francia==")
-	j := 0
-	item, valid = <-fr
-	for valid {
-		fmt.Println(item.utente)
-		j++
-		item, valid = <-fr
+	if len(fr) < 2 {
+		fmt.Println("!!Il viaggio non si farà a causa dei troppi pochi iscritti!!")
+	} else {
+		for k := range fr {
+			fmt.Println(k.utente)
+		}
 	}
-	if j < 2 {
-		fmt.Println("!!Ma il viaggio non si farà perchè ci sono troppi pochi iscritti!!")
-	}
+
 	//se c'è stato qualche problema di concorrenza...
-	if j+i < 7 {
+	if cap(sp)+cap(fr) < 7 {
 		fmt.Println("Ops")
 	}
 }
