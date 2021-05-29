@@ -71,9 +71,9 @@ func main() {
 	go func() {
 		i := <-u1
 		tmp := <-o1
-		fmt.Println(tmp.nome, "sta usando il", i.name)
+		fmt.Println(tmp.nome, "prende il", i.name)
 		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
-		fmt.Println(tmp.nome, "ha smesso di usare il", i.name)
+		fmt.Println(tmp.nome, "ripone il", i.name)
 		go addO1(o1)
 		go addMartello(u1)
 		wg.Done()
@@ -82,9 +82,9 @@ func main() {
 	go func() {
 		i := <-u1
 		tmp := <-o2
-		fmt.Println(tmp.nome, "sta usando il", i.name)
+		fmt.Println(tmp.nome, "prende il", i.name)
 		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
-		fmt.Println(tmp.nome, "ha smesso di usare il", i.name)
+		fmt.Println(tmp.nome, "ripone il", i.name)
 		go addO2(o2)
 		go addMartello(u1)
 		wg.Done()
@@ -93,9 +93,9 @@ func main() {
 	go func() {
 		i := <-u1
 		tmp := <-o3
-		fmt.Println(tmp.nome, "sta usando il", i.name)
+		fmt.Println(tmp.nome, "prende il", i.name)
 		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
-		fmt.Println(tmp.nome, "ha smesso di usare il", i.name)
+		fmt.Println(tmp.nome, "ripone il", i.name)
 		go addO3(o3)
 		go addMartello(u1)
 		wg.Done()
@@ -105,9 +105,9 @@ func main() {
 		//trapani
 		i := <-u3
 		tmp := <-o1
-		fmt.Println(tmp.nome, "sta usando il", i.name)
+		fmt.Println(tmp.nome, "prende il", i.name)
 		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
-		fmt.Println(tmp.nome, "ha smesso di usare il", i.name)
+		fmt.Println(tmp.nome, "ripone il", i.name)
 		go addO1(o1)
 		go addTrapano(u3, i)
 		wg.Done()
@@ -115,9 +115,9 @@ func main() {
 		//cacciavite
 		k := <-u2
 		tmp = <-o1
-		fmt.Println(tmp.nome, "sta usando il", k.name)
+		fmt.Println(tmp.nome, "prende il", k.name)
 		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
-		fmt.Println(tmp.nome, "ha smesso di usare il", k.name)
+		fmt.Println(tmp.nome, "ripone il", k.name)
 		go addO1(o1)
 		go addCacciavite(u2)
 		wg.Done()
@@ -127,9 +127,9 @@ func main() {
 		//trapani
 		i := <-u3
 		tmp := <-o2
-		fmt.Println(tmp.nome, "sta usando il", i.name)
+		fmt.Println(tmp.nome, "prende il", i.name)
 		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
-		fmt.Println(tmp.nome, "ha smesso di usare il", i.name)
+		fmt.Println(tmp.nome, "ripone il", i.name)
 		go addO2(o2)
 		go addTrapano(u3, i)
 		wg.Done()
@@ -137,9 +137,9 @@ func main() {
 		//cacciavite
 		k := <-u2
 		tmp = <-o2
-		fmt.Println(tmp.nome, "sta usando il", k.name)
+		fmt.Println(tmp.nome, "prende il", k.name)
 		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
-		fmt.Println(tmp.nome, "ha smesso di usare il", k.name)
+		fmt.Println(tmp.nome, "ripone il", k.name)
 		go addO2(o2)
 		go addCacciavite(u2)
 		wg.Done()
@@ -149,9 +149,9 @@ func main() {
 		//trapani
 		i := <-u3
 		tmp := <-o3
-		fmt.Println(tmp.nome, "sta usando il", i.name)
+		fmt.Println(tmp.nome, "prende il", i.name)
 		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
-		fmt.Println(tmp.nome, "ha smesso di usare il", i.name)
+		fmt.Println(tmp.nome, "ripone il", i.name)
 		go addO3(o3)
 		go addTrapano(u3, i)
 		wg.Done()
@@ -159,9 +159,9 @@ func main() {
 		//cacciavite
 		k := <-u2
 		tmp = <-o3
-		fmt.Println(tmp.nome, "sta usando il", k.name)
+		fmt.Println(tmp.nome, "prende il", k.name)
 		time.Sleep(time.Duration(rand.Intn(100)) * 100 * time.Millisecond)
-		fmt.Println(tmp.nome, "ha smesso di usare il", k.name)
+		fmt.Println(tmp.nome, "ripone il", k.name)
 		go addO3(o3)
 		go addCacciavite(u2)
 		wg.Done()
