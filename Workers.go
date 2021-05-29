@@ -1,6 +1,10 @@
-/* Ordine attrezzi necessari:
-Cacciavite DOPO il trapano
-martello in qualsiasi momento*/
+/*Terzo assegnamento
+ * sistemi operativi
+ * programmazione concorrente
+ * Giovanni Zago 1226024
+ * Ordine attrezzi necessari:
+ * Cacciavite DOPO il trapano
+ * martello in qualsiasi momento*/
 
 package main
 
