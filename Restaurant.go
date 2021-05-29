@@ -28,6 +28,8 @@ var (
 	c2 Cameriere = Cameriere{"Pinotto"}
 	//mi assicuro che il ritorante non chiuda prima di ricevere e consegnare tutti gli ordini
 	wg = sync.WaitGroup{}
+	//ora di inizio servizio
+	now = time.Now()
 )
 
 func main() {
@@ -39,7 +41,7 @@ func main() {
 	pass := make(chan Piatto, 2)
 	camerieri := make(chan Cameriere, 2)
 
-	fmt.Println("In un bel risotrante a Padova, 10 clienti ordinano contemporaneamente da 2 camerieri...")
+	fmt.Println("Programma parllelismo in un ristorante\n10 ordini\n3 fornelli\n2 camerieri\n")
 
 	wg.Add(30)
 	for i := 0; i < 10; i++ {
@@ -50,6 +52,7 @@ func main() {
 	camerieri <- c1
 	camerieri <- c2
 	wg.Wait()
+
 }
 
 func ordina(cucina *chan Piatto, i int) {
@@ -98,5 +101,4 @@ func consegna(piatto *chan Piatto, cameriere *chan Cameriere) {
 
 func ritorna(waiter *chan Cameriere, cam Cameriere) {
 	*waiter <- cam
-	fmt.Println(cam.nome, "ritorna a farsi uralre contro dallo chef")
 }
