@@ -1,3 +1,9 @@
+/* Primo assegnamento
+ * sistemi operativi
+ * programmazione concorrente
+ * Giovanni Zago 1226024
+ */
+
 package main
 
 import (
@@ -95,4 +101,5 @@ func stampaPartecipanti(sp chan Prenotazione, fr chan Prenotazione) {
 	if cap(sp)+cap(fr) < 7 {
 		fmt.Println("Ops")
 	}
+	fmt.Println("Che bello sto scrivendo in verticale!")
 }

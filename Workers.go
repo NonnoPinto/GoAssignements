@@ -1,7 +1,8 @@
-/*Terzo assegnamento
+/*Secondo assegnamento
  * sistemi operativi
  * programmazione concorrente
  * Giovanni Zago 1226024
+ *
  * Ordine attrezzi necessari:
  * Cacciavite DOPO il trapano
  * martello in qualsiasi momento*/

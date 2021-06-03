@@ -1,3 +1,9 @@
+/*Quarto assegnamento
+ * sistemi operativi
+ * programmazione concorrente
+ * Giovanni Zago 1226024
+ */
+
 package main
 
 import (
@@ -59,8 +65,10 @@ func main() {
 
 	tunnelChannel := make(chan Tunnel, 1)
 	tunnel := Tunnel{true}
+
 	//canale per comunicare un eventuale scontro
 	c1 := make(chan int, 1)
+
 	tunnelChannel <- tunnel
 
 	go transumanza(gruppo1, tunnelChannel, c1)
